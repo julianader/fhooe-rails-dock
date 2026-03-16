@@ -5,6 +5,10 @@
   </div>
 
   <div>
+    <strong>Categories:</strong>
+    <%= article.categories.map(&:name).join(", ") %>
+  </div>
+  <div>
     <strong>Body:</strong>
     <%= article.body %>
   </div>

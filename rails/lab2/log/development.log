@@ -204,3 +204,223 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 197ms (Views: 83.6ms | ActiveRecord: 10.2ms (1 query, 0 cached) | GC: 6.2ms)
 
 
+Started GET "/articles/new" for 172.21.0.1 at 2026-03-16 10:08:34 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (6.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+Started GET "/articles" for 172.21.0.1 at 2026-03-16 10:08:35 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+Processing by ArticlesController#index as HTML
+  Rendered articles/_form.html.erb (Duration: 83.4ms | GC: 0.0ms)
+  Rendered articles/new.html.erb within layouts/application (Duration: 99.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 103.2ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 464ms (ActiveRecord: 62.9ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x00007f7dded400b8>::Category)
+Caused by: NameError (uninitialized constant #<Class:0x00007f7dded400b8>::Category)
+
+Information for: ActionView::Template::Error (uninitialized constant #<Class:0x00007f7dded400b8>::Category):
+    19:   <div>
+    20:     <%= form.label "Categories", style: "display: block" %>
+    21:     <% Category.all.each do |category| %>
+    22:         <%= form.check_box :category_ids, { multiple: true }, category.id, nil %>
+    23:         <%= form.label :category_ids, category.name, style: "display: inline" %>
+    24:     <% end %>
+    25:   </div>
+  
+app/views/articles/_form.html.erb:22
+app/views/articles/_form.html.erb:2
+app/views/articles/new.html.erb:6
+
+Information for cause: NameError (uninitialized constant #<Class:0x00007f7dded400b8>::Category):
+  
+app/views/articles/_form.html.erb:22
+app/views/articles/_form.html.erb:2
+app/views/articles/new.html.erb:6
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /*action='index',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:9
+  Rendered articles/_article.html.erb (Duration: 3.3ms | GC: 0.6ms)
+  Rendered articles/index.html.erb within layouts/application (Duration: 126.9ms | GC: 16.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 129.1ms | GC: 16.3ms)
+Completed 500 Internal Server Error in 338ms (ActiveRecord: 3.0ms (1 query, 0 cached) | GC: 16.3ms)
+
+
+  
+ActionView::Template::Error (undefined method 'categories' for an instance of Article)
+Caused by: NoMethodError (undefined method 'categories' for an instance of Article)
+
+Information for: ActionView::Template::Error (undefined method 'categories' for an instance of Article):
+     7:   <div>
+     8:     <strong>Categories:</strong>
+     9:     <%= article.categories.map(&:name).join(", ") %>
+    10:   </div>
+    11:   <div>
+    12:     <strong>Body:</strong>
+    13:     <%= article.body %>
+  
+app/views/articles/_article.html.erb:10
+app/views/articles/index.html.erb:10
+app/views/articles/index.html.erb:9
+
+Information for cause: NoMethodError (undefined method 'categories' for an instance of Article):
+  
+app/views/articles/_article.html.erb:10
+app/views/articles/index.html.erb:10
+app/views/articles/index.html.erb:9
+Started GET "/" for 172.21.0.1 at 2026-03-16 10:08:42 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-8.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-8.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 76ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles" for 172.21.0.1 at 2026-03-16 10:08:46 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /*action='index',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:9
+  Rendered articles/_article.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'categories' for an instance of Article)
+Caused by: NoMethodError (undefined method 'categories' for an instance of Article)
+
+Information for: ActionView::Template::Error (undefined method 'categories' for an instance of Article):
+     7:   <div>
+     8:     <strong>Categories:</strong>
+     9:     <%= article.categories.map(&:name).join(", ") %>
+    10:   </div>
+    11:   <div>
+    12:     <strong>Body:</strong>
+    13:     <%= article.body %>
+  
+app/views/articles/_article.html.erb:10
+app/views/articles/index.html.erb:10
+app/views/articles/index.html.erb:9
+
+Information for cause: NoMethodError (undefined method 'categories' for an instance of Article):
+  
+app/views/articles/_article.html.erb:10
+app/views/articles/index.html.erb:10
+app/views/articles/index.html.erb:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+Migrating to CreateCategories (20260316100957)
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Lab2'*/[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260316100957') RETURNING "version" /*application='Lab2'*/[0m
+  [1m[36mTRANSACTION (14.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Lab2'*/[0m
+Migrating to CreateJoinTableArticlesCategories (20260316101007)
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Lab2'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "articles_categories" ("article_id" integer NOT NULL, "category_id" integer NOT NULL) /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260316101007') RETURNING "version" /*application='Lab2'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+Started GET "/articles" for 172.21.0.1 at 2026-03-16 10:11:05 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (11.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (49.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /*action='index',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:9
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "articles_categories" ON "categories"."id" = "articles_categories"."category_id" WHERE "articles_categories"."article_id" = 1 /*action='index',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/_article.html.erb:10:in 'Enumerable#map'
+  Rendered articles/_article.html.erb (Duration: 754.3ms | GC: 4.4ms)
+  [1m[36mCategory Load (2.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "articles_categories" ON "categories"."id" = "articles_categories"."category_id" WHERE "articles_categories"."article_id" = 2 /*action='index',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/_article.html.erb:10:in 'Enumerable#map'
+  Rendered articles/_article.html.erb (Duration: 6.4ms | GC: 0.0ms)
+  Rendered articles/index.html.erb within layouts/application (Duration: 848.2ms | GC: 5.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 1094.6ms | GC: 5.8ms)
+Completed 200 OK in 1684ms (Views: 1055.6ms | ActiveRecord: 65.0ms (3 queries, 0 cached) | GC: 7.8ms)
+
+
+Started GET "/articles/new" for 172.21.0.1 at 2026-03-16 10:11:10 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /*action='new',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:22
+  Rendered articles/_form.html.erb (Duration: 10.9ms | GC: 0.0ms)
+  Rendered articles/new.html.erb within layouts/application (Duration: 22.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | GC: 0.0ms)
+Completed 200 OK in 84ms (Views: 26.9ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/articles" for 172.21.0.1 at 2026-03-16 10:11:14 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "article" => {"title" => "", "body" => ""}, "commit" => "Create Article"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+  [1m[36mArticle Create (2.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ('', '', '2026-03-16 10:11:15.086410', '2026-03-16 10:11:15.086410') RETURNING "id" /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+  [1m[36mTRANSACTION (9.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+Redirected to http://localhost:3000/articles/3
+↳ app/controllers/articles_controller.rb:28:in 'block (2 levels) in ArticlesController#create'
+Completed 302 Found in 57ms (ActiveRecord: 12.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/3" for 172.21.0.1 at 2026-03-16 10:11:15 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"id" => "3"}
+  [1m[36mArticle Load (2.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='show',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:63:in 'ArticlesController#set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "articles_categories" ON "categories"."id" = "articles_categories"."category_id" WHERE "articles_categories"."article_id" = 3 /*action='show',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/_article.html.erb:10:in 'Enumerable#map'
+  Rendered articles/_article.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered articles/show.html.erb within layouts/application (Duration: 6.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 9.3ms | ActiveRecord: 2.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/3/edit" for 172.21.0.1 at 2026-03-16 10:11:15 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='edit',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:63:in 'ArticlesController#set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /*action='edit',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:22
+  Rendered articles/_form.html.erb (Duration: 3.8ms | GC: 0.0ms)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | GC: 0.0ms)
+Completed 200 OK in 66ms (Views: 15.4ms | ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/3/edit" for 172.21.0.1 at 2026-03-16 10:11:16 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='edit',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:63:in 'ArticlesController#set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /*action='edit',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:22
+  Rendered articles/_form.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | GC: 0.0ms)
+Completed 200 OK in 38ms (Views: 9.6ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
