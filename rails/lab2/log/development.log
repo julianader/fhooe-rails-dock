@@ -1,0 +1,206 @@
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Lab2'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (4.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-03-16 09:33:40.300329', '2026-03-16 09:33:40.300333') RETURNING "key" /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+Migrating to CreateArticles (20260316093259)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Lab2'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260316093259') RETURNING "version" /*application='Lab2'*/[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+Started GET "/" for 172.21.0.1 at 2026-03-16 09:55:28 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-8.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-8.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 674ms (Views: 75.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/articles" for 172.21.0.1 at 2026-03-16 09:55:40 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (64.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /*action='index',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:9
+  Rendered articles/index.html.erb within layouts/application (Duration: 74.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 304.4ms | GC: 0.0ms)
+Completed 200 OK in 2511ms (Views: 201.1ms | ActiveRecord: 121.5ms (1 query, 0 cached) | GC: 6.2ms)
+
+
+Started GET "/articles/new" for 172.21.0.1 at 2026-03-16 09:55:45 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 842.1ms | GC: 0.0ms)
+  Rendered articles/new.html.erb within layouts/application (Duration: 857.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 860.6ms | GC: 0.0ms)
+Completed 200 OK in 921ms (Views: 863.2ms | ActiveRecord: 2.9ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/articles" for 172.21.0.1 at 2026-03-16 09:55:53 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "article" => {"title" => "Hello", "body" => "this is first article"}, "commit" => "Create Article"}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+  [1m[36mArticle Create (3.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ('Hello', 'this is first article', '2026-03-16 09:55:54.313074', '2026-03-16 09:55:54.313074') RETURNING "id" /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+Redirected to http://localhost:3000/articles/1
+↳ app/controllers/articles_controller.rb:28:in 'block (2 levels) in ArticlesController#create'
+Completed 302 Found in 125ms (ActiveRecord: 7.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/1" for 172.21.0.1 at 2026-03-16 09:55:54 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mArticle Load (10.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 1 LIMIT 1 /*action='show',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:63:in 'ArticlesController#set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_article.html.erb (Duration: 11.8ms | GC: 0.0ms)
+  Rendered articles/show.html.erb within layouts/application (Duration: 129.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 131.9ms | GC: 0.0ms)
+Completed 200 OK in 294ms (Views: 134.3ms | ActiveRecord: 10.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/1/edit" for 172.21.0.1 at 2026-03-16 09:55:56 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 1 LIMIT 1 /*action='edit',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:63:in 'ArticlesController#set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 4.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 200 OK in 76ms (Views: 9.0ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles" for 172.21.0.1 at 2026-03-16 09:55:56 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /*action='index',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:9
+  Rendered articles/_article.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | GC: 0.0ms)
+Completed 200 OK in 49ms (Views: 12.2ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/new" for 172.21.0.1 at 2026-03-16 09:55:59 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 5.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/articles" for 172.21.0.1 at 2026-03-16 09:56:06 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "article" => {"title" => "Second", "body" => "second article"}, "commit" => "Create Article"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+  [1m[36mArticle Create (5.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ('Second', 'second article', '2026-03-16 09:56:06.546039', '2026-03-16 09:56:06.546039') RETURNING "id" /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:27:in 'block in ArticlesController#create'
+Redirected to http://localhost:3000/articles/2
+↳ app/controllers/articles_controller.rb:28:in 'block (2 levels) in ArticlesController#create'
+Completed 302 Found in 90ms (ActiveRecord: 7.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/2" for 172.21.0.1 at 2026-03-16 09:56:06 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 2 LIMIT 1 /*action='show',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:63:in 'ArticlesController#set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_article.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 4.0ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles" for 172.21.0.1 at 2026-03-16 09:56:07 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /*action='index',application='Lab2',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:9
+  Rendered articles/_article.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered articles/_article.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 44ms (Views: 6.5ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab2'*/[0m
+Started GET "/articles/new" for 172.21.0.1 at 2026-03-16 10:00:07 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 18.3ms | GC: 0.0ms)
+  Rendered articles/new.html.erb within layouts/application (Duration: 39.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 50.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 30.9ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x00007fc2da055fb0>::Category)
+Caused by: NameError (uninitialized constant #<Class:0x00007fc2da055fb0>::Category)
+
+Information for: ActionView::Template::Error (uninitialized constant #<Class:0x00007fc2da055fb0>::Category):
+    19:   <div>
+    20:     <%= form.label "Categories", style: "display: block" %>
+    21:     <% Category.all.each do |category| %>
+    22:       <div>
+    23:         <%= form.check_box :category_ids, { multiple: true }, category.id, nil %>
+    24:         <%= form.label :category_ids, category.name, style: "display: inline" %>
+    25:       </div>
+  
+app/views/articles/_form.html.erb:22
+app/views/articles/_form.html.erb:2
+app/views/articles/new.html.erb:6
+
+Information for cause: NameError (uninitialized constant #<Class:0x00007fc2da055fb0>::Category):
+  
+app/views/articles/_form.html.erb:22
+app/views/articles/_form.html.erb:2
+app/views/articles/new.html.erb:6
+Started GET "/articles/2" for 172.21.0.1 at 2026-03-16 10:00:07 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by ArticlesController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mArticle Load (10.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 2 LIMIT 1 /*action='show',application='Lab2',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:63:in 'ArticlesController#set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_article.html.erb (Duration: 7.3ms | GC: 0.0ms)
+  Rendered articles/show.html.erb within layouts/application (Duration: 34.2ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 80.4ms | GC: 3.4ms)
+Completed 200 OK in 197ms (Views: 83.6ms | ActiveRecord: 10.2ms (1 query, 0 cached) | GC: 6.2ms)
+
+
